@@ -1,10 +1,7 @@
-// import { useTranslation } from "react-i18next";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import styles from './Header.module.scss'
 
 const Header = () => {
-  // const { t } = useTranslation();
-
   return (
     <div className={styles.headerContainer}>
       <div className={styles.titleContainer}>
