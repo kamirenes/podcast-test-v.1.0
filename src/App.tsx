@@ -1,11 +1,11 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import Header from './components/Header/Header';
+import MainScreen from './screens/MainScreen/MainScreen';
 
 const App = () => {
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Header />} />
+        <Route path="/" element={<MainScreen/>} />
       </Routes>
     </BrowserRouter>
   )
