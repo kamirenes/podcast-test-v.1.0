@@ -13,7 +13,11 @@ export type TPodcast = {
   artwork: string,
   name: string,
   feedUrl: string,
-  artistName: string
+  artistName: string,
+  duration: string,
+  description: string,
+  total: number,
+  trackId: string,
 }
 
 export type TChapter = {
@@ -23,4 +27,15 @@ export type TChapter = {
   duration?: string,
   content?: string,
   url?: string
+}
+
+export type TGetPodcast = {
+  trackId: string, 
+  artworkUrl600:string, 
+  trackName: string, 
+  feedUrl: string, 
+  artistName: string,
+  trackTimeMillis: number,
+  description: string,
+  resultCount: number,
 }

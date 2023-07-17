@@ -1,14 +1,21 @@
+import Header from "../../components/Header/Header"
 import useScreen from "./useScreen"
 
 export default () => {
-  const { data } = useScreen({ 
-    id: "1",
-    artwork: '',
-    name: '',
-    feedUrl: '',
-    artistName: ''}) // TODO: add the correct podcast 
+  const { dataChapter, dataPodcast } = useScreen() // TODO: add the correct podcast 
   
   return (
-    <></>
+    <>
+      <Header />
+      <h5>{dataPodcast.name}</h5>
+      <h5>by {dataPodcast.artistName}</h5>
+      <br />
+      <h5>{dataChapter.title}</h5>
+      <br />
+      <h5>{dataChapter.contet}</h5>
+      <br />
+      <h5>{dataChapter.url}</h5>
+      <br />
+    </>
   )
 }

@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.titleContainer}>
-        <a href="" className={styles.headerTitle}>Podcaster</a>
+        <a href="/" className={styles.headerTitle}>Podcaster</a>
       </div>
       <div className={styles.loadingContainer}>
         <LoadingSpinner/>

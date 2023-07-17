@@ -16,11 +16,13 @@ export default () => {
 
 
   useEffect(() => {
-    console.info(filter)
     if(filter === '') {
       setDataToShow(data)
     } else {
-      const newData = data.filter(item => item.name.toLowerCase().includes(filter.toLocaleLowerCase()) || item.author.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) )
+      const newData = data.filter(item => 
+        item.name.toLowerCase().includes(filter.toLocaleLowerCase()) || 
+        item.author.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) ||
+        item.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) )
       setDataToShow(newData)
     }
   }, [filter, data])

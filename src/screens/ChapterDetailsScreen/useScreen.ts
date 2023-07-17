@@ -1,11 +1,12 @@
-import podcarterAPI from '../../api/PodcastApi'
-import { TPodcast } from '../../api/types'
+import { useLocation } from 'react-router-dom'
 
-export default (podcast: TPodcast) => {
-  const data = podcarterAPI.podcasterAPI.getChapters(podcast)
-  console.info(data)
+export default () => {
+  const { state } = useLocation()
+
+  const {episode, podcast} = state
 
   return {
-    data
+    dataChapter: episode,
+    dataPodcast: podcast
   }
 }

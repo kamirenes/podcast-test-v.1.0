@@ -1,6 +1,7 @@
 import axios from "axios";
-import { TChapter, TPodCastSummary, TPodcast } from "./types";
+import { TChapter, TPodCastSummary, TPodcast, TGetPodcast } from './types';
 import Parser from "rss-parser";
+import { milisecondsToMinutesAndSeconds } from "../utils/functions";
 
 export default {
   podcasterAPI: {
@@ -30,24 +31,31 @@ export default {
         .get(`https://itunes.apple.com/lookup?id=${podcastId}&media=podcast
         &entity=podcastEpisode&limit=20`)
         .then(res => {
-          const p = res.data.results[0];
-          let podcast = {
+          const p: TGetPodcast  = res.data.results[0];
+          let podcast: TPodcast = {
             id: p.trackId,
             artwork: p.artworkUrl600,
             name: p.trackName,
             feedUrl: p.feedUrl,
-            artistName: p.artistName
+            artistName: p.artistName,
+            duration: milisecondsToMinutesAndSeconds(p.trackTimeMillis),
+            description: p.description,
+            total: p.resultCount,
+            trackId: p.trackId,
           };
-          return podcast;
+          return {
+            podcatsDetails: podcast || null,
+            podcatsList: res.data.results
+          };
         })
         .catch(
           error => console.log(`Error at fetching podcast: ${error}`)
         ),
 
-    getChapters: async (podcast: TPodcast) => {
+    getChapters: async (feedUrl: TPodcast['feedUrl']) => {
       const parser = new Parser();
       let chapters: TChapter[] = [];
-      const feed = await parser.parseURL(`${podcast.feedUrl}`);
+      const feed = await parser.parseURL(`${feedUrl}`);
       feed.items.forEach(episode => {
         chapters.push({
           id: episode.guid,
