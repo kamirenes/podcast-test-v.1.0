@@ -1,15 +1,16 @@
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import styles from './Header.module.scss'
 
-const Header = () => {
+const Header = ({isLoading}:{isLoading: boolean}) => {
+  console.info('loading', isLoading)
   return (
     <div className={styles.headerContainer}>
       <div className={styles.titleContainer}>
         <a href="/" className={styles.headerTitle}>Podcaster</a>
       </div>
-      <div className={styles.loadingContainer}>
+      {isLoading && <div className={styles.loadingContainer}>
         <LoadingSpinner/>
-      </div>
+      </div>}
     </div>
   )
 }

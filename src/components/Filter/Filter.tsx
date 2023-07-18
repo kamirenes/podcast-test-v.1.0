@@ -1,18 +1,17 @@
 import  {Input} from 'antd'
-import { FilterProps } from "./types";
+import { FilterProps } from "./types"
+import styles from './Filter.module.scss'
+
 
 const Filter = ({total, setFilter}: FilterProps) => {
-  let filter = ''
-
   return (
-    <div>
-      <div>
-        <h4>{total}</h4>
+    <div className={styles.row}>
+      <div className={styles.totalContainer}>
+        <h4 className={styles.text}>{total}</h4>
       </div>
       <div>
         <Input onChange={(event) => {
           setFilter(event.target.value)
-          filter= event.target.value
         }}/>
       </div>
     </div>

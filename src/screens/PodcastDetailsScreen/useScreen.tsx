@@ -3,14 +3,15 @@ import { useMemo, useState } from "react"
 
 import podcarterAPI from '../../api/PodcastApi'
 import { TChapter, TPodcast } from "../../api/types"
-import { milisecondsToMinutesAndSeconds } from "../../utils/functions"
 
 export default () => {
   const { id } = useParams()
   const[data, setData] = useState<TPodcast|null>(null)
   const[list, setList] = useState<TChapter[]|[]>([])
+  const[isLoading, setIsLoading] = useState<boolean>(true)
 
   const getData = async() => {
+    await setIsLoading(true)
     if (id) {
       const response = await podcarterAPI.podcasterAPI.getPodcast(id) || null
       await setData(response?.podcatsDetails || null)
@@ -18,6 +19,7 @@ export default () => {
       const chaptersList = response?.podcatsDetails ? await podcarterAPI.podcasterAPI.getChapters(response?.podcatsDetails?.feedUrl) : []
       setList(chaptersList)
     }
+    await setIsLoading(false)
   }
   
   useMemo(getData,[])
@@ -46,10 +48,10 @@ export default () => {
     },
   ];
 
-
   return {
     columns,
     data,
-    list
+    list,
+    isLoading
   }
 }

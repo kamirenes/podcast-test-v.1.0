@@ -1,7 +1,6 @@
 import axios from "axios";
 import { TChapter, TPodCastSummary, TPodcast, TGetPodcast } from './types';
 import Parser from "rss-parser";
-import { milisecondsToMinutesAndSeconds } from "../utils/functions";
 
 export default {
   podcasterAPI: {
@@ -38,7 +37,6 @@ export default {
             name: p.trackName,
             feedUrl: p.feedUrl,
             artistName: p.artistName,
-            duration: milisecondsToMinutesAndSeconds(p.trackTimeMillis),
             description: p.description,
             total: p.resultCount,
             trackId: p.trackId,

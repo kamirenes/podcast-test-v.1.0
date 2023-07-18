@@ -1,15 +1,18 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import podcarterAPI from '../../api/PodcastApi'
 import { TPodCastSummary } from '../../api/types';
 
 export default () => {
   const[filter, setFilter] = useState<string>('')
   const[data, setData] = useState<TPodCastSummary[]|[]>([])
+  const[isLoading, setIsLoading] = useState<boolean>(true)
   const[dataToShow, setDataToShow] = useState<TPodCastSummary[]|[]>([])
   
   const getData = async() => {
     const response = await podcarterAPI.podcasterAPI.getAll() || []
-    setData(response)
+    await setIsLoading(true)
+    await setData(response)
+    setIsLoading(false)
   }
 
  useMemo(getData,[])
@@ -29,6 +32,7 @@ export default () => {
 
   return {
     data: dataToShow,
-    setFilter
+    setFilter,
+    isLoading
   }
 }

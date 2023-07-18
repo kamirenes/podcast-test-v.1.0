@@ -2,11 +2,11 @@ import Header from "../../components/Header/Header"
 import useScreen from "./useScreen"
 
 export default () => {
-  const { dataChapter, dataPodcast } = useScreen() // TODO: add the correct podcast 
+  const { dataChapter, dataPodcast, isLoading } = useScreen() // TODO: add the correct podcast 
   
   return (
     <>
-      <Header />
+      <Header isLoading={isLoading}/>
       <h5>{dataPodcast.name}</h5>
       <h5>by {dataPodcast.artistName}</h5>
       <br />

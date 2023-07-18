@@ -14,7 +14,6 @@ export type TPodcast = {
   name: string,
   feedUrl: string,
   artistName: string,
-  duration: string,
   description: string,
   total: number,
   trackId: string,

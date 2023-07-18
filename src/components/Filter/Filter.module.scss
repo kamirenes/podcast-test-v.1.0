@@ -1,0 +1,23 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 225px;
+  align-items: center;
+  justify-content: space-between;
+  align-self: self-end;
+  margin-right: 16px;
+}
+
+.totalContainer {
+  background-color: rgb(67, 117, 167);
+  padding: 0px 5px 0px 5px;
+  height: 25px;
+  align-items: center;
+  justify-items: center;
+  border-radius: 8px;
+}
+
+.text {
+  margin-top: 3px;
+  color: white;
+}

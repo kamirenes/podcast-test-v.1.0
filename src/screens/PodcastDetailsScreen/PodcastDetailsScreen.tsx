@@ -3,10 +3,10 @@ import useScreen from "./useScreen"
 import {Table} from 'antd'
 
 export default () => {
-  const { columns, data, list } = useScreen() // TODO: add the correct podcast id
+  const { columns, data, list, isLoading } = useScreen() // TODO: add the correct podcast id
   return (
     <>
-      <Header />
+      <Header isLoading={isLoading}/>
       <h5>{data?.name}</h5>
       <br/>
       <h5>by {data?.artistName}</h5>
