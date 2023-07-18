@@ -10,9 +10,12 @@ const Filter = ({total, setFilter}: FilterProps) => {
         <h4 className={styles.text}>{total}</h4>
       </div>
       <div>
-        <Input onChange={(event) => {
-          setFilter(event.target.value)
-        }}/>
+        <Input
+          onChange={(event) => {
+            setFilter(event.target.value)
+          }}
+          placeholder='Filter podcats...'
+        />
       </div>
     </div>
   )
