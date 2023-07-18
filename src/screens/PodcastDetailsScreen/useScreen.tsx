@@ -18,7 +18,6 @@ export default () => {
     if (id) {
       const response = await podcarterAPI.podcasterAPI.getPodcast(id) || null
       await setData(response?.podcatsDetails || null)
-
       const chaptersList = response?.podcatsDetails ? await podcarterAPI.podcasterAPI.getChapters(response?.podcatsDetails?.feedUrl) : []
       setList(chaptersList)
     }
