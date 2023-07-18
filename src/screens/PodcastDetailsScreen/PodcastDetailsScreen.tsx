@@ -4,7 +4,7 @@ import PodcastSummaryCard from "../../components/PodcastSummaryCard/PodcastSumma
 import useScreen from "./useScreen"
 import styles from './PodcastDetailsScreen.module.scss'
 
-export default () => {
+export const PodcastDetailsScreen = () => {
   const { columns, data, list, isLoading, image, description } = useScreen()
   return (
     <>

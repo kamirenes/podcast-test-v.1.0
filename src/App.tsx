@@ -1,6 +1,6 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import MainScreen from './screens/MainScreen/MainScreen';
-import PodcastDetailsScreen from './screens/PodcastDetailsScreen/PodcastDetailsScreen';
+import {MainScreen} from './screens/MainScreen/MainScreen';
+import {PodcastDetailsScreen} from './screens/PodcastDetailsScreen/PodcastDetailsScreen';
 import ChapterDetailsScreen from './screens/ChapterDetailsScreen/ChapterDetailsScreen';
 
 const App = () => {

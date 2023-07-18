@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import { Col, Layout, Row } from "antd";
 import styles from './MainScreen.module.scss'
 
-export default () => {
+export const MainScreen = () => {
   const { data, setFilter, isLoading } = useScreen()
   const {Header: LHedaer} = Layout
   
