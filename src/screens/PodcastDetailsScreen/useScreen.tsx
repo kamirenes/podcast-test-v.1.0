@@ -1,11 +1,14 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { useMemo, useState } from "react"
 
 import podcarterAPI from '../../api/PodcastApi'
 import { TChapter, TPodcast } from "../../api/types"
+import moment from 'moment';
 
 export default () => {
   const { id } = useParams()
+  const {state} = useLocation()
+  const {image, description} = state
   const[data, setData] = useState<TPodcast|null>(null)
   const[list, setList] = useState<TChapter[]|[]>([])
   const[isLoading, setIsLoading] = useState<boolean>(true)
@@ -40,6 +43,9 @@ export default () => {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
+      render: (text: string, record: any) => <h3 style={{fontSize: 14, color: 'black', fontWeight: 350}}>
+        {moment(record.date).format('DD/MM/YYYY')}
+      </h3>
     },
     {
       title: 'Duration',
@@ -52,6 +58,8 @@ export default () => {
     columns,
     data,
     list,
-    isLoading
+    isLoading,
+    image,
+    description
   }
 }

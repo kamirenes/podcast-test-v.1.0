@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import styles from './PodcastCard.module.scss'
 
 export default ({data}: {data:TPodCastSummary}) => {
-  const {author, id, img, name, summary} = data
+  const {author, id, img, name} = data
   return(
-    <Link to={`/podcast/${id}`}>
+    <Link to={`/podcast/${id}`} state={{image: data.img, description: data.summary}}>
       <Card className={styles.card}>
         <div className={styles.imageContainer}>
           <Image  width={80} src={img} className={styles.image}/>

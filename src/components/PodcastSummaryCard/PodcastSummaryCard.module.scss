@@ -1,0 +1,32 @@
+.card {
+  margin-left: 16px;
+  margin-right: 16px;
+  box-shadow: 0px 3px 2px 2px rgb(233, 232, 232);
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  box-shadow: 0px 1px 0px 0px rgb(233, 232, 232);
+}
+
+.image {
+  border-radius: 5px;
+}
+
+.mainDataContainer {
+  margin-top: -5px;
+  margin-bottom: 0px;
+  box-shadow: 0px 1px 0px 0px rgb(233, 232, 232);
+}
+
+.littleText {
+  margin-top: -15px;
+  color: rgb(96, 95, 95);
+  font-weight: 500;
+  margin-bottom: -5px;
+}
