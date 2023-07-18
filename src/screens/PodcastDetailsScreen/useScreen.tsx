@@ -34,7 +34,7 @@ export default () => {
       key: 'title',
       render: (text: string, record: any) => <Link 
         to={`/podcast/${id}/episode/${record.id}`}
-        state={{episode: list.filter(item => item.id === record.id)[0], podcast: data}}
+        state={{episode: list.filter(item => item.id === record.id)[0], podcast: {...data, image: image, description: description}}}
         >
           {record.title}
         </Link>
